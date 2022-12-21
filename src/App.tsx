@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { ForgotPassword, Login, Register, ResetPassword } from "./libs";
 
 function App() {
+  const loginClick = (data: any) => {
+    console.log(data);
+  };
+  const registerClick = (data: any) => {
+    console.log(data);
+  };
+  const resetClick = (data: any) => {
+    console.log(data);
+  };
+  const forgotClick = (data: any) => {
+    console.log(data);
+  };
+  const flags = {
+    login: true,
+    register: true,
+    forgotPassword: true,
+    resetPassword: true,
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {flags.login && <Login onAction={loginClick} />}
+      {flags.register && <Register onAction={registerClick} />}
+      {flags.forgotPassword && <ForgotPassword onAction={forgotClick} />}
+      {flags.resetPassword && <ResetPassword onAction={resetClick} />}
     </div>
   );
 }
